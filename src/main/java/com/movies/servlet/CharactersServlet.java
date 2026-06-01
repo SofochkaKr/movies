@@ -5,7 +5,6 @@ import com.movies.dao.FilmDAO;
 import com.movies.model.Character;
 import com.movies.model.Film;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/characters")
 public class CharactersServlet extends HttpServlet {
 
     private final CharacterDAO characterDAO = new CharacterDAO();

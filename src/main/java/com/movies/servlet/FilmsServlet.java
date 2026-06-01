@@ -3,7 +3,6 @@ package com.movies.servlet;
 import com.movies.dao.FilmDAO;
 import com.movies.model.Film;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +11,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/films")
 public class FilmsServlet extends HttpServlet {
 
     private final FilmDAO filmDAO = new FilmDAO();
