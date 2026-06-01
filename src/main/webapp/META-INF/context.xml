@@ -6,7 +6,7 @@
               driverClassName="org.postgresql.Driver"
               url="jdbc:postgresql://localhost:5432/movies_db"
               username="postgres"
-              password="your_password"
+              password="postgres"
               maxTotal="10"
               maxIdle="5"
               maxWaitMillis="10000"/>
