@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/characters")
+@WebServlet("/character-template")
 public class CharacterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

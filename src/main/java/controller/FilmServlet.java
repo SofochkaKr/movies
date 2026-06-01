@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/films")
+@WebServlet("/film-template")
 public class FilmServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
