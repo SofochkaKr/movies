@@ -1,24 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ page import="com.movies.domain.Film, com.movies.domain.Character" %>
-<%
-    Film[] films = {
-        new Film(1L, "Начало", 2010, "Кристофер Нолан", "Фантастика"),
-        new Film(2L, "Матрица", 1999, "Вачовски", "Фантастика"),
-        new Film(3L, "Интерстеллар", 2014, "Кристофер Нолан", "Драма"),
-        new Film(4L, "Достучаться до небес", 1997, "Томас Ян", "Драма")
-    };
-
-    Character[] characters = {
-        new Character(1L, "Кобб", "Леонардо ДиКаприо", "главный", 1L, films[0]),
-        new Character(2L, "Нео", "Киану Ривз", "главный", 2L, films[1]),
-        new Character(3L, "Купер", "Мэттью МакКонахи", "главный", 3L, films[2]),
-        new Character(4L, "Мартин Брест", "Тилль Швайгер", "главный", 4L, films[3])
-    };
-
-    pageContext.setAttribute("films", films);
-    pageContext.setAttribute("characters", characters);
-%>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
