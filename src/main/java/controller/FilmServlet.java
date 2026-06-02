@@ -39,6 +39,26 @@ public class FilmServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        try {
+            FilmDbDAO filmDao = new FilmDbDAO(new DbConnectionBuilder(prop));
+
+            String title = request.getParameter("title");
+            String releaseYearStr = request.getParameter("releaseYear");
+            String director = request.getParameter("director");
+            String genre = request.getParameter("genre");
+
+            Integer releaseYear = null;
+            if (releaseYearStr != null && !releaseYearStr.trim().isEmpty()) {
+                try { releaseYear = Integer.parseInt(releaseYearStr.trim()); }
+                catch (NumberFormatException ignored) {}
+            }
+
+            Film newFilm = new Film(title, releaseYear, director, genre);
+            filmDao.insert(newFilm);
+        } catch (DAOException e) {
+            throw new ServletException(e);
+        }
         doGet(request, response);
     }
 }

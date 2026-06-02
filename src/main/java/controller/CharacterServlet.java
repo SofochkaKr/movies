@@ -50,6 +50,20 @@ public class CharacterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        try {
+            CharacterDbDAO characterDao = new CharacterDbDAO(new DbConnectionBuilder(prop));
+
+            String characterName = request.getParameter("characterName");
+            String actorName = request.getParameter("actorName");
+            String status = request.getParameter("status");
+            Long filmId = Long.parseLong(request.getParameter("filmId"));
+
+            Character newCharacter = new Character(characterName, actorName, status, filmId, null);
+            characterDao.insert(newCharacter);
+        } catch (DAOException e) {
+            throw new ServletException(e);
+        }
         doGet(request, response);
     }
 }
