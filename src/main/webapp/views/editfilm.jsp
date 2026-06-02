@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Фильмы</title>
+    <title>Редактировать фильм</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
@@ -16,7 +16,7 @@
 <main class="container my-4 flex-grow-1">
     <div class="row g-4">
 
-        <div class="col-lg-8">
+        <div class="col-lg-7">
             <h2 class="mb-3">Список фильмов</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover align-middle">
@@ -27,8 +27,6 @@
                             <th>Год выхода</th>
                             <th>Режиссёр</th>
                             <th>Жанр</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,14 +37,6 @@
                                 <td>${film.releaseYear}</td>
                                 <td>${film.director}</td>
                                 <td>${film.genre}</td>
-                                <td class="text-center">
-                                    <a href="<c:url value='/editfilm?id=${film.id}'/>" class="btn btn-sm btn-outline-primary">Изменить</a>
-                                </td>
-                                <td class="text-center">
-                                    <a href="<c:url value='/deletefilm?id=${film.id}'/>"
-                                       class="btn btn-sm btn-outline-danger"
-                                       onclick="return confirm('Удалить запись с кодом: ${film.id}?')">Удалить</a>
-                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -54,30 +44,43 @@
             </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-5">
             <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Новый фильм</h5>
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">Редактировать фильм</h5>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="${pageContext.request.contextPath}/films">
+                    <form method="post" action="${pageContext.request.contextPath}/editfilm">
+                        <div class="mb-3">
+                            <label class="form-label">Код</label>
+                            <input type="text" name="id" class="form-control"
+                                   value="${filmEdit.id}" readonly>
+                        </div>
                         <div class="mb-3">
                             <label class="form-label">Название</label>
-                            <input type="text" name="title" class="form-control" required>
+                            <input type="text" name="title" class="form-control"
+                                   value="${filmEdit.title}" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Год выхода</label>
-                            <input type="text" name="releaseYear" class="form-control">
+                            <input type="text" name="releaseYear" class="form-control"
+                                   value="${filmEdit.releaseYear}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Режиссёр</label>
-                            <input type="text" name="director" class="form-control">
+                            <input type="text" name="director" class="form-control"
+                                   value="${filmEdit.director}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Жанр</label>
-                            <input type="text" name="genre" class="form-control">
+                            <input type="text" name="genre" class="form-control"
+                                   value="${filmEdit.genre}">
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Добавить</button>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-warning flex-fill">Редактировать</button>
+                            <a href="${pageContext.request.contextPath}/films"
+                               class="btn btn-secondary flex-fill">Отменить</a>
+                        </div>
                     </form>
                 </div>
             </div>
