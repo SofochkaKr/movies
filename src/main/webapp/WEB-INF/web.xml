@@ -7,24 +7,6 @@
 
     <display-name>Movies</display-name>
 
-    <servlet>
-        <servlet-name>FilmsServlet</servlet-name>
-        <servlet-class>com.movies.servlet.FilmsServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FilmsServlet</servlet-name>
-        <url-pattern>/films</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>CharactersServlet</servlet-name>
-        <servlet-class>com.movies.servlet.CharactersServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CharactersServlet</servlet-name>
-        <url-pattern>/characters</url-pattern>
-    </servlet-mapping>
-
     <resource-ref>
         <res-ref-name>jdbc/moviesDB</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
